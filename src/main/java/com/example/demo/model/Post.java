@@ -1,8 +1,17 @@
 package com.example.demo.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class Post {
+
+@Entity
+public class Post implements Serializable {
+    @Id
+    @GeneratedValue
     private Long id;
     private String title;
     private Integer likes;
@@ -15,9 +24,11 @@ public class Post {
         this.creationDate = creationDate;
     }
 
-    public Long getId() {
-        return this.id;
+    public Post() {
+
     }
+
+
     public Integer getLikes() {
         return this.likes;
     }
@@ -34,4 +45,7 @@ public class Post {
         return this.creationDate;
     }
 
+    public Long getId() {
+        return this.id;
+    }
 }
